@@ -1,7 +1,6 @@
 const Producto = require('../models/Producto');
 const { Op } = require('sequelize');
 
-// GET /api/productos - Listar todos
 exports.obtenerProductos = async (req, res) => {
   try {
     const productos = await Producto.findAll();
@@ -11,7 +10,6 @@ exports.obtenerProductos = async (req, res) => {
   }
 };
 
-// GET /api/productos/buscar?nombre=texto - Buscar por coincidencia parcial
 exports.buscarProductos = async (req, res) => {
   try {
     const { nombre } = req.query;
@@ -34,7 +32,6 @@ exports.buscarProductos = async (req, res) => {
   }
 };
 
-// GET /api/productos/:id - Obtener por ID
 exports.obtenerProductoPorId = async (req, res) => {
   try {
     const { id } = req.params;
@@ -50,7 +47,6 @@ exports.obtenerProductoPorId = async (req, res) => {
   }
 };
 
-// POST /api/productos - Registrar producto
 exports.crearProducto = async (req, res) => {
   try {
     const { nombre, descripcion, precio, stock, estado } = req.body;
@@ -80,7 +76,6 @@ exports.crearProducto = async (req, res) => {
   }
 };
 
-// PUT /api/productos/:id - Actualizar producto
 exports.actualizarProducto = async (req, res) => {
   try {
     const { id } = req.params;
@@ -116,7 +111,6 @@ exports.actualizarProducto = async (req, res) => {
   }
 };
 
-// DELETE /api/productos/:id - Eliminar producto
 exports.eliminarProducto = async (req, res) => {
   try {
     const { id } = req.params;
